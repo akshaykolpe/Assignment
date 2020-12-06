@@ -1,0 +1,197 @@
+@import url('../src/assets/css/reset.css');
+@import url('../src/assets/css/bootstrap-4-min.css');
+@import url('../src/assets/css/font.css');
+/* ----------------------------------------------- */
+
+/* BASIC SETUP */
+
+/* ----------------------------------------------- */
+
+/* blue color - >  #4acaff */
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Encode Sans Semi Expanded', sans-serif;
+  font-size: 16px;
+  color: #ffffff
+}
+
+.btn {
+  /* 125px */
+  /* min-width: 7.8125em; */
+  width: 100%; 
+}
+
+/* margins */
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+/* custom - scrollbar */
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #333232;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #707070;
+}
+
+/* MODAL STYLES
+ -------------------------------*/
+
+form-modal {
+  /* modals are hidden by default */
+  display: none;
+}
+
+form-modal .form-modal {
+  /* modal container fixed across whole screen */
+  position: fixed;
+  color: #000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* z-index must be higher than .form-modal-background */
+  z-index: 1000;
+  /* enables scrolling for tall modals */
+  overflow: auto;
+}
+
+form-modal .form-modal .form-modal-body {
+  padding: 20px;
+  /* background: #fff; */
+  /* margin exposes part of the modal background */
+  margin: 40px;
+}
+
+form-modal .form-modal-background {
+  /* modal background fixed across whole screen */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* semi-transparent black  */
+  background-color: #000;
+  opacity: 0.75;
+  /* z-index must be below .form-modal and above everything else  */
+  z-index: 900;
+}
+
+body.form-modal-open {
+  /* body overflow is hidden to hide main scrollbar when modal window is open */
+  overflow: hidden;
+}
+
+/* checkbox */
+
+.checkbox-label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  font-weight: 300;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Creating a custom checkbox */
+
+.checkbox-label .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+/* On mouse-over, add a grey background color */
+
+.checkbox-label:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+
+.checkbox-label input:checked~.checkmark {
+  background-color: #4acaff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkbox-label .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+
+.checkbox-label input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+
+.checkbox-label .checkmark:after {
+  left: 8px;
+  top: 3px;
+  width: 8px;
+  height: 14px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+@media screen and (max-width: 768px) {
+  .pt-5 {
+    padding-top: 0 !important;
+  }
+}

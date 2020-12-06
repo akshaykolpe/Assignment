@@ -1,0 +1,198 @@
+<div class="form-modal">
+  <div class="form-modal-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mx-auto">
+          <div class="card ">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-3 col-xs-3 col-sm-3">
+                  <h3 class="mb-0 my-2">Register </h3>
+                </div>
+                <div class="col-md-9 col-xs-9 col-sm-9 text-right" (click)="closeModal('custom-modal-1');">
+                  <span class="text-right">
+                    <i class="fa fa-close"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mx-auto">
+          <div class="card ">
+            <form class="form" (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm" autocomplete="off" nonvalidate>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="card-body text-center">
+                    <img class="img-fluid" [src]="image" alt="{{image}}" title="{{image}}">
+                  </div>
+                  <div class="card-body text-center">
+                    <input type="hidden" id="image" name="image" [(ngModel)]="image" class="form-control " required>
+                    <label id="file" class="ml-4"> Upload your photo
+                      <input type="file" class="form-control" accept="image/*" (change)="onFileSelect($event)" size="60">
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" #fn id="firstName" name="firstName" [(ngModel)]="firstName" placeholder="First Name"
+                            mask="SSSSSSSSSSSSSSSSSSSS" maxlength="20" title="Alphabets not more than 20 Chars" required>
+                          <!-- <div class="help-block" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+                              First Name is required.
+                            </div> -->
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="lastName" placeholder="Last Name" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <input type="email" class="form-control" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [(ngModel)]="email"
+                            placeholder="Email" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <input type="text" mask="( 000 ) - 000 - 0000" class="form-control" id="number" name="number" [(ngModel)]="number" placeholder="Number"
+                            required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-1">
+                            <span> Age:</span>
+                          </div>
+                          <div class="col-md-11">
+                            <div class="form-group">
+                              <input type="hidden" id="age" name="age" [(ngModel)]="age" required>
+                              <input type="range" class="form-control slider" placeholder="Age" (change)="selectAge($event)" min="20" max="60">
+                              <p>Selected Value : {{age}}
+                                <span id="demo"></span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <select class="form-control" id="state" name="state" [(ngModel)]="state" required>
+                            <option selected>Select your State</option>
+                            <option *ngFor="let state of states;" [ngValue]="state.id">
+                              {{state.name}}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <select class="form-control" id="country" name="country" [(ngModel)]="country" required>
+                            <option selected>Select your Country</option>
+                            <option *ngFor="let country of countries" [ngValue]="country.id">
+                              {{country.name}}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <select class="form-control" id="address" name="address" [(ngModel)]="address" required>
+                            <option selected>Select your Address Type </option>
+                            <option *ngFor="let addr of addrType" [ngValue]="addr.id">
+                              {{addr.name}}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="home-addr" *ngIf="address === 'Home'">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="addr1" name="addr1" [(ngModel)]="addr1" placeholder="Address 1" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="addr2" name="addr2" [(ngModel)]="addr2" placeholder="Address 2" required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="company-addr" *ngIf="address === 'Company'">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="addr1" name="addr1" [(ngModel)]="addr1" placeholder="Company Address 1" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="addr2" name="addr2" [(ngModel)]="addr2" placeholder="Company Address 2" required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <tag-input id="tags" name="tags" [(ngModel)]='tags' required></tag-input>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="checkbox-label">
+                            <input type="checkbox" id="newsLetter" name="newsLetter" [(ngModel)]="newsLetter" [checked]="newsLetter" (change)="newsLetter = !newsLetter">
+                            <span class="checkmark"></span> Subscribe to our News Letter</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <a class="btn btn-light mb-2" (click)="closeModal('custom-modal-1');">Cancel</a>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <!-- [disabled]="!registerForm.valid" -->
+                          <button type="submit" class="btn btn-info mb-2" [disabled]="!registerForm.valid">Submit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>
+<div class="form-modal-background"></div>

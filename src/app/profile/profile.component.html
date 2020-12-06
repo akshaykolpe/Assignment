@@ -1,0 +1,94 @@
+<section class="header-wrapper">
+  <div class="container pt-5">
+    <div class="row">
+      <div class="col ">
+        <app-nav></app-nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="profile-wrapper">
+  <div class="container pt-4">
+    <div class="row">
+      <div class="col-md-12 mx-auto">
+        <h3 class="mb-0 my-2">Profile</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mx-auto">
+        <div class="row">
+          <div class="col-md-5 col-sm-5">
+            <div class="card-body text-center">
+              <img class="img-fluid avatar-img" *ngIf="formData.image" [src]="formData.image" alt="{{formData.image}}"
+                title="{{formData.image}}">
+            </div>
+            <div class="card-body text-center">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-20 ">
+                    <label id="file" class="btn btn-warning"> Edit Photo
+                      <input type="file" class="form-control" accept="image/*" (change)="onFileSelect($event)"
+                        size="60">
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-20 ">
+                    <button type="submit" class="btn btn-warning" (click)="openModal('custom-modal-1')">Edit
+                      Profile</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7 col-sm-7">
+            <div class="card-body profile-desc">
+              <p>
+                I'm {{formData.firstName}} {{formData.lastName}} and I am above {{formData.age}} years of age.
+                <br> You can send your emails to
+                <a href='mailto:{{formData.email}}'>{{formData.email}}</a>.
+              </p>
+              <p>
+                I live in {{formData.addr1}} {{formData.addr2}} {{formData.state}} in {{formData.country}}.
+              </p>
+              <p>
+                I like to play
+                <span *ngFor='let hobby of formData.tags; let first = first; let last = last; '>
+                  <em *ngIf="first">{{ hobby.display}} </em>
+                  <em *ngIf="!first && !last"> , {{ hobby.display}} </em>
+                  <em *ngIf="last"> and {{ hobby.display}}</em>
+                </span>
+              </p>
+              <p>
+                <span *ngIf="formData.newsLetter">
+                  I would also love to recieve newsletters.
+                </span>
+                <span *ngIf="!formData.newsLetter">
+                  At this moment I am not ready to recieve newsletters.
+                </span>
+                Please reach out to me on my phone number.
+              </p>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="mb-20 ">
+                    <button type="submit" class="btn btn-success" routerLink="/home">I Agree</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <hr>
+  </div>
+
+</section>
+
+<form-modal id="custom-modal-1">
+
+</form-modal>

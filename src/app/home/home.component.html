@@ -1,0 +1,93 @@
+<section class="header-wrapper">
+  <div class="container w-100 h-100 pt-5">
+    <div class="row">
+      <div class="col">
+        <app-nav></app-nav>
+      </div>
+    </div>
+    <div class="row search-box align-items-center h-100" style="margin-top: -7%">
+      <div class="col">
+        <div class="row ">
+          <div class="col">
+            <h1 class="mb-20">I'm looking for...</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" aria-describedby="search" placeholder="Enter a Job Description">
+                </div>
+              </div>
+            </div>
+            <div class="row mb-20">
+              <div class="col-md-6 pt-2">
+                <div class="row cb-wrapper">
+                  <div class="col-md-4 mb-1">
+                    <label class="checkbox-label">
+                      <input type="checkbox" id="fulltime" name="fulltime">
+                      <span class="checkmark"></span> Full Time</label>
+                  </div>
+                  <div class="col-md-8 mb-1">
+                    <label class="checkbox-label">
+                      <input type="checkbox" id="fulltime" name="fulltime">
+                      <span class="checkmark"></span> Part Time / Casual / Part Time</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <select name="" id="" class="form-control">
+                  <option selected>Select your Location</option>
+                  <option value="1">Pune</option>
+                  <option value="2">Mumbai</option>
+                  <option value="3">Chennai</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-12">
+            <div class="search-btn-wrapper mb-20 ">
+              <button type="submit" class="btn btn-info">
+                <i class="fa fa-search" aria-hidden="true"></i> Search</button>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-5">
+          <div class="col-md-2 offset-md-5">
+            <button class="btn btn-info" (click)="openModal('custom-modal-1')">Register</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<form-modal id="custom-modal-1"> </form-modal>
+
+<section class="intro">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="row ">
+          <div class="col  title-wrapper ">
+            <h2 class="mb-10">We're leaders in</h2>
+            <h1>Creative Digital Recruitment</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col  desc-wrapper ">
+            <p class="text-center mb-20">
+              Based in Surry Hills, the creative hub of Sydney we are surrounded by creativity and that reflects on the type of jobs we
+              recruit for.
+            </p>
+            <div class="row mb-50">
+              <div class="col-md-4 offset-md-4">
+                <button class="btn btn-outline-info">Find out more about us</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
